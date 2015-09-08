@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	</head> 
+<body> 
+
+<!--  ----------------- INTRO PAGE ----------------- -->
+<div data-role="page" id="intro">
+
+	<div data-role="header">
+		<h1><%= title %></h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>This web app is about trees.</p>	
+		<% if (trees.length) { %>
+			<ul data-role="listview" data-inset="true" data-filter="true">
+	    <% trees.forEach(function(tree){ %>
+				<li><a href="#<%= tree.name %>" data-transition="slide"><%= tree.name %></a></li>
+    	<% }) %>
+		  </ul>
+		<% } %>
+	</div><!-- /content -->
+	<div data-role="page" id="map-page" data-url="map-page">
+    	<div data-role="header" data-theme="a">
+    		<h1>Maps</h1>
+    	</div>
+    	<div role="main" class="ui-content" id="map-canvas">
+        <!-- map loads here... -->
+    	</div>
+	</div>
+
+</div><!-- /page -->
+
+<!--  ----------------- TREE PAGES ----------------- -->
+<% if (trees.length) { %>
+   <% trees.forEach(function(tree){ %>
+		<div data-role="page" id="<%= tree.name %>">
+			<div data-role="header">
+				<h1><%= tree.name %></h1>
+			</div><!-- /header -->
+			<div data-role="content">	
+				<p><%= tree.content %></p>
+				<a href="#intro" data-role="button" data-icon="arrow-l" data-transition="slide"  data-direction="reverse">Back to trees</a>
+			</div><!-- /content -->
+		</div><!-- /page -->
+  	<% }) %>
+<% } %>
+
+</body>
