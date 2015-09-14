@@ -2,6 +2,7 @@ var express = require('express'),
     routes = require('./routes'),
     http = require('http');
 
+
 var app = express();
 
 app.configure(function(){
@@ -12,6 +13,7 @@ app.configure(function(){
   app.use(express.errorHandler());
   });
 
+app.use(express.static(__dirname + '/public'));
 app.get('/', routes.index);
 
 http.createServer(app).listen(4444);
