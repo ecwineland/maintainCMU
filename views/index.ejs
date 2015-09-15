@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-		<title><%= title %></title>
+		<title>maintainCMU</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -17,9 +17,9 @@
 
 	<div data-role="content">
 		<h2 align="center">Welcome!</h2>
-		<p>Here any member of the Carnegie Mellon community can log a maintenance request in order to alert university staff when something is broken.</p>
+		<p>Here any member of the Carnegie Mellon community can log a maintenance request in order to alert university staff when something is broken on campus.</p>
 		<a href="#newReq" data-role="button">Create a new maintanence request</a>
-		<h3>Check previous requests</h3>
+		<!-- <h3>Check previous requests</h3> -->
 	</div>
 
 </div>
@@ -39,9 +39,11 @@
 		<input type="text" id="roomNum" placeholder="e.g. 313" /></b></b>
 		<h3>If not, do you know on which floor of the building the problem is occuring?</h3>
 		<input type="text" id="floorNum" placeholder="e.g. 2nd floor">
-		<h3>Please enter any additional information that might help someone <u>find the problem</u> and <u>understand the problem</u></h3>
-		<input type="text" id="description" placeholder="e.g. 'The faucet in the 2nd floor women's restroom is leaking water.'">
-		
+		<h3>Please enter any additional information that might help someone <u>find</u> the problem.</h3>
+		<input type="text" id="description" placeholder="e.g. 'In the 2nd floor women's restroom'">
+		<h3>Please enter any additional information that might help someone <u>understand</u> the problem.</h3>
+		<input type="text" id="description" placeholder="e.g. 'The faucet is leaking water.'">
+
 	</div>
 	<a href="#index" data-role="button">Back</a>
 </div>
