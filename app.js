@@ -13,6 +13,7 @@ app.configure(function(){
   });
 
 app.get('/', routes.index);
+app.get('/request', routes.mongo)
 
 http.createServer(app).listen(4444);
 console.log("Express server listening on port 4444");

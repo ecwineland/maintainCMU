@@ -4,19 +4,29 @@ var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 
 // Connection URL. This is where your mongodb server is running.
-var url = 'mongodb://localhost:4444/my_database_name';
+var url = 'mongodb://localhost:4444/maintainCMU';
 
 // Use connect method to connect to the Server
 MongoClient.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
-    //HURRAY!! We are connected. :)
+    // Connected
     console.log('Connection established to', url);
-
-    // do some work here with the database.
-
-    //Close connection
-    db.close();
+    mongoDB.close();
   }
 });
+
+exports.insert = function(collection, query, callback) {
+  console.log("start insert");
+  mongoDB.collection(collection).insert(
+    query,
+    {safe: true},
+    function(err, crsr) {
+      if (err) doError(err);
+      console.log("completed mongo insert");
+      callback(crsr);
+      console.log("done with insert callback");
+    });
+  console.log("leaving insert");
+}
