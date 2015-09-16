@@ -10,16 +10,35 @@
 <body> 
 
 	<div data-role="page" id="index">
-
 		<div data-role="header">
 			<h1>maintainCMU</h1>
 		</div>
-
 		<div data-role="content">
 			<h2 align="center">Welcome!</h2>
 			<p>Here any member of the Carnegie Mellon community can log a maintenance request in order to alert university staff when something is broken on campus.</p>
-			<a href="newRequest.ejs" data-role="button">Create a new maintanence request</a>
+			<a href="#newReq" data-role="button">Create a new maintanence request</a>
 		</div>
+	</div>
+
+	<div data-role="page" id="newReq">
+		<div data-role="header">
+			<h1>maintainCMU</h1>
+		</div>
+		<div align="center"><h2>Create a new maintenance request</h2></div>
+		<div data-role="content">
+			<i>Input information about the problem you're experiencing in an on-campus facility.</i>
+			<h3>In what building is the issue occuring?</h3></b></b>
+			<input type="text" id="building" placeholder="e.g. Scaife"/>
+			<h3>Do you know the room number of the space where the problem is occuring?  If yes, input it here.</h3>
+			<input type="text" id="roomNum" placeholder="e.g. 313" /></b></b>
+			<h3>If not, do you know on which floor of the building the problem is occuring?</h3>
+			<input type="text" id="floorNum" placeholder="e.g. 2nd floor">
+			<h3>Please enter any additional information that might help someone <u>find</u> the problem.</h3>
+			<input type="text" id="description" placeholder="e.g. 'In the 2nd floor women's restroom'">
+			<h3>Please enter any additional information that might help someone <u>understand</u> the problem.</h3>
+			<input type="text" id="description" placeholder="e.g. 'The faucet is leaking water.'">
 
 	</div>
+	<a href="#index" data-role="button">Submit</a>
+	<a href="#index" data-role="button">Back</a>
 </body>

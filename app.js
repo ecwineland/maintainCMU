@@ -1,20 +1,39 @@
-var express = require('express'),
-    routes = require('./routes'),
-    http = require('http');
-
+var express = require('express');
+var routes = require('./routes/routes'); 
 var app = express();
+var http = require('http');
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
-  app.use(express.logger('tiny'));
-  app.use(app.router);
-  app.use(express.errorHandler());
-  });
+// Define the view (templating) engine
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
+// Routes
 app.get('/', routes.index);
-app.get('/request', routes.mongo)
+// app.get('/recommendations/:operation', routes.mongo)
 
-http.createServer(app).listen(8080);
-console.log("Express server listening on port 8080");
+// Handle static files
+app.use(express.static(__dirname + '/public'));
 
+
+/*
+ * OpenShift will provide environment variables indicating the IP 
+ * address and PORT to use.  If those variables are not available
+ * (e.g. when you are testing the application on your laptop) then
+ * use default values of localhost (127.0.0.1) and 33333 (arbitrary).
+ */
+// var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+// var port      = process.env.OPENSHIFT_NODEJS_PORT || 50000;
+
+// //  Start listening on the specific IP and PORT
+// app.listen(port, ipaddress, function() {
+// console.log('%s: Node server started on %s:%d ...',
+//                Date(Date.now() ), ipaddress, port);
+//                });
+
+var http = require('http');
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+    port = process.env.OPENSHIFT_NODEJS_PORT || '8080';
+
+app.listen(port, ip,function(){
+	console.log('%s: Node server started on %s:%d ...',
+               Date(Date.now() ), ip, port);});
