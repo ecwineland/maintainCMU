@@ -2,6 +2,9 @@ var express = require('express');
 var routes = require('./routes/routes.js'); 
 var app = express();
 var http = require('http');
+var morgan = require('morgan');
+
+app.use(morgan('dev'));
 
 // Define the view (templating) engine
 app.set('views', __dirname + '/views');
