@@ -35,6 +35,7 @@ var requests_array = []
 
 var request = {
   addRequest: function(building, roomNum, floorNum, location, description) { // TODO: ADD PHOTO INPUT
+    console.log("Here in request.js")
     var r = {'building':building, 'roomNum':roomNum, 'floorNum': floorNum, 'location':location, 'description':description};
     request_array.push(s);
     return request_array;

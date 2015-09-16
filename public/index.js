@@ -1,5 +1,6 @@
 $(function() {
 	$('#submit').click(function(e) {
+		consol.log("here in index.js");
 		e.preventDefault();
 		var building = $('#building').val();
 		var roomNum = $('#roomNum').val();
