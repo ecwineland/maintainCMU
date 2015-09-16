@@ -26,9 +26,7 @@ var request = require('../models/request.js')
 
 exports.addRequest = function(req, res) {
   console.log("Creating request for building: "+req.params.building+" on floor: "+req.params.floornum+" in room number: "+req.params.roomnum+" with location description: "+req.params.loc+" with problem description: "+req.params.descr);
-  var requests = request.addRequest(req.params.title,req.params.album,req.params.artist).length;
-  res.render('add', {title: req.params.title,
-             album: req.params.album,
-             artist: req.params.artist,
-             count: count});
+  var requests = request.addRequest(req.params.building,req.params.roomnum,req.params.floornum,req.params.loc,req.params.descr);
+  res.render('newRequest', {album: req.params.album, artist: req.params.artist,
+             requests: requests});
 }

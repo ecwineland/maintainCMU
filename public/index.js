@@ -9,7 +9,7 @@ $(function() {
 		// var photo = $('#')
 		console.log('here');
 		$.ajax({
-			url: 'song/'+title+'/'+album+'/'+artist,
+			url: 'request/'+building+'/'+floorNum+'/'+roomNum+'/'+location+'/'+description,
 			type: 'PUT',
 			success: function(result) {
 				$('#exRequests').html(JSON.stringify(result));

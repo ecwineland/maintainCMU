@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', routes.index);
-// app.put("/request/:building/:floornum/:roomnum/:loc/:descr", routes.addRequest);
+app.put("/request/:building/:floornum/:roomnum/:loc/:descr", routes.addRequest);
 
 // app.get('/recommendations/:operation', routes.mongo)
 
