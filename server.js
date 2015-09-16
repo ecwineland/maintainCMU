@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', routes.index);
-app.put("/request/:building/:floornum/:roomnum/:loc/:descr", routes.addRequest);
+// app.put("/request/:building/:floornum/:roomnum/:loc/:descr", routes.addRequest);
 
 // app.get('/recommendations/:operation', routes.mongo)
 
@@ -36,7 +36,7 @@ app.use(express.static(__dirname + '/public'));
 //                });
 
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
-    port = process.env.OPENSHIFT_NODEJS_PORT || '4444';
+    port = process.env.OPENSHIFT_NODEJS_PORT || '8080';
 
 app.listen(port, ip,function(){
 	console.log('%s: Node server started on %s:%d ...',

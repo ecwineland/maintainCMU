@@ -1,8 +1,8 @@
 // var mongo = require("../models/request.js")
 
-// exports.index = function(req, res) {
-//   res.render('index')
-// };
+exports.index = function(req, res) {
+  res.render('index')
+};
 
 // exports.mongo = function(req, res){ // insert the only needed operation
 // 	console.log("req.query is "+JSON.stringify(req.query));
