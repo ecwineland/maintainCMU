@@ -1,5 +1,5 @@
 var express = require('express');
-var routes = require('./routes/routes'); 
+var routes = require('./routes/routes.js'); 
 var app = express();
 var http = require('http');
 
@@ -9,6 +9,8 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', routes.index);
+app.put("/request/:building/:floornum/:roomnum/:loc/:descr", routes.addRequest);
+
 // app.get('/recommendations/:operation', routes.mongo)
 
 // Handle static files
@@ -30,9 +32,8 @@ app.use(express.static(__dirname + '/public'));
 //                Date(Date.now() ), ipaddress, port);
 //                });
 
-var http = require('http');
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
-    port = process.env.OPENSHIFT_NODEJS_PORT || '8080';
+    port = process.env.OPENSHIFT_NODEJS_PORT || '4444';
 
 app.listen(port, ip,function(){
 	console.log('%s: Node server started on %s:%d ...',

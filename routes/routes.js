@@ -22,7 +22,7 @@ exports.errorMessage = function(req, res){
   res.status(404).send(message);
 };
 
-var request = require('../models/music.js')
+var request = require('../models/request.js')
 
 exports.addRequest = function(req, res) {
   console.log("Creating request for building: "+req.params.building+" on floor: "+req.params.floornum+" in room number: "+req.params.roomnum+" with location description: "+req.params.loc+" with problem description: "+req.params.descr);
